@@ -3,6 +3,7 @@ section .text
 _start:
     nop
     mov cx, 5
+    push cx
     jmp loop
     nop
 loop:
@@ -12,7 +13,9 @@ loop:
     mov edx, msglen
     int 80h
 
+    pop cx
     dec cx
+    push cx
     jnz loop
     
     jmp end
